@@ -1,0 +1,33 @@
+.main-div{
+    margin-left: 20px;
+}
+.description{
+    font-weight: bold;
+    color: gray;
+}
+.contents{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 15px;
+    background-color: lightblue;
+}
+.row-picture-desc{
+    display: flex;
+    flex-direction: row;
+}
+.picture{
+    height: 100px;
+    width: 150px;
+    border-radius: 10px;
+}
+.text1{
+    margin-left: 10px;
+    font-size: 20px;
+}
+.price{
+    color: crimson;
+    font-size: 30px;
+    align-self: flex-end;
+}
