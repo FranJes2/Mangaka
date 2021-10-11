@@ -1,21 +1,26 @@
 .main-div{
     margin-left: 20px;
+    color: darkslateblue;
 }
 .description{
     font-weight: bold;
-    color: gray;
+    color: darkcyan;
 }
 .contents{
     display: flex;
     flex-direction: column;
     padding: 10px;
-    margin: 20px;
+    margin: 50px;
     border-radius: 15px;
-    background-color: lightblue;
+    background-color: darkgoldenrod;
 }
 .row-picture-desc{
     display: flex;
     flex-direction: row;
+}
+.title{
+    color: khaki;
+    align-self: center;
 }
 .picture{
     height: 100px;
@@ -23,11 +28,12 @@
     border-radius: 10px;
 }
 .text1{
-    margin-left: 10px;
     font-size: 20px;
+    color: aliceblue;
+    align-self: center;
+    text-align: center;
 }
-.price{
-    color: crimson;
-    font-size: 30px;
-    align-self: flex-end;
+
+.button{
+    align-self: center;
 }
