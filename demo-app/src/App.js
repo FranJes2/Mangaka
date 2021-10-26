@@ -7,6 +7,8 @@ import {
   Route, Link,
 } from "react-router-dom";
 import Courses from "./Components/Courses";
+import CourseDetail from "./Components/CourseDetail";
+import AuthRoute from "./Components/AuthRoute";
 
 function App() {
   return (     <Router>
@@ -18,13 +20,13 @@ function App() {
               </li>
             </ul>
           </nav>
-
-          {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
           <Switch>
-            <Route path="/Courses">
+            <Route exact={true} path={`/Courses`}>
               <Courses />
             </Route>
+            <AuthRoute exact={true} path={`/Courses/details/:id`}>
+              <CourseDetail/>
+            </AuthRoute>
           </Switch>
         </div>
       </Router>
