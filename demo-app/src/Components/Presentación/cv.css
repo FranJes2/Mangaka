@@ -1,0 +1,23 @@
+.custom-title{
+    color: darkviolet;
+    font-size: 30px;
+    font-family: "Malgun Gothic", sans-serif;
+}
+
+.parrafo{
+    color: brown;
+    font-size: 20px;
+    font-family: "Malgun Gothic", Segoe, Arial, sans-serif;
+}
+
+.conteiner{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.item{
+    background-color: lavender;
+}
