@@ -20,6 +20,8 @@ function App() {
                 <Link to ="/Courses">Courses</Link>
               </li>
             </ul>
+          </nav>
+          <nav>
             <ul>
               <li>
                 <Link to ="/cv">cv</Link>

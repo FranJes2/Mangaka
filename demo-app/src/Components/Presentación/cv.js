@@ -1,4 +1,4 @@
-import './index-cv.css';
+import './cv.css';
 
 const cv = () => {
     return(
