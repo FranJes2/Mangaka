@@ -9,6 +9,7 @@ import {
 import Courses from "./Components/Courses";
 import CourseDetail from "./Components/CourseDetail";
 import AuthRoute from "./Components/AuthRoute";
+import cv from "./Components/Presentación/cv";
 
 function App() {
   return (     <Router>
@@ -19,10 +20,18 @@ function App() {
                 <Link to ="/Courses">Courses</Link>
               </li>
             </ul>
+            <ul>
+              <li>
+                <Link to ="/cv">cv</Link>
+              </li>
+            </ul>
           </nav>
           <Switch>
             <Route exact={true} path={`/Courses`}>
               <Courses />
+            </Route>
+            <Route exact={true} path={`/cv`}>
+              <cv />
             </Route>
             <AuthRoute exact={true} path={`/Courses/details/:id`}>
               <CourseDetail/>
