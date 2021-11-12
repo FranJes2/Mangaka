@@ -1,0 +1,39 @@
+.main-div{
+    margin-left: 20px;
+    color: darkslateblue;
+}
+.description{
+    font-weight: bold;
+    color: darkcyan;
+}
+.contents{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 50px;
+    border-radius: 15px;
+    background-color: darkgoldenrod;
+}
+.row-picture-desc{
+    display: flex;
+    flex-direction: row;
+}
+.title{
+    color: khaki;
+    align-self: center;
+}
+.picture{
+    height: 100px;
+    width: 150px;
+    border-radius: 10px;
+}
+.text1{
+    font-size: 20px;
+    color: aliceblue;
+    align-self: center;
+    text-align: center;
+}
+
+.button{
+    align-self: center;
+}
