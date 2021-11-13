@@ -11,3 +11,4 @@ router.register(r'gallery', GalleryViewSet)
 urlpatterns = [
     path('', include(router.urls))
 ]
+
