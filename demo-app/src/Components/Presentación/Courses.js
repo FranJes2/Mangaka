@@ -6,7 +6,7 @@ const Courses = () => {
     const subjects = ['Curso 1', 'Curso 2', 'Curso 3']
 
     return(
-        <div>
+        <div className="Sekai">
             <div className="main-div">
                 <h1 className="custom-title"> Convertite en Mangaka!</h1>
                 <p className="description">Aprende desde cero a crear tus propios personajes y tus propias historias con estilo manga.</p>

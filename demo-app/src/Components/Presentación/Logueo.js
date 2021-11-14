@@ -2,16 +2,24 @@ import './Login.css';
 import {useState} from "react";
 import {Link} from "react-router-dom";
 
-const Logueo = () => {
+
+const Login = () => {
     return(
-        <div>
+        <form className={"Loggiinn"}>
             <div>
-                <h1 className="titleLR"> </h1>
+                <label>Email address</label>
+                <input type="email"/>
             </div>
-        </div>
+            <div>
+                <label>Password</label>
+                <input type="password"/>
+            </div>
+            <div>
+                <input type="checkbox" id="btn-check-outlinedCheck" autocomplete="off"/>
+                    <label for="btn-check-outlined">Acepto</label>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
     )
 }
-
-
-
-export default Logueo
+export default Login

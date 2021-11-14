@@ -1,0 +1,17 @@
+.FondoRegis{
+    background-image: url("Color de Fondo.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+.FOREVER{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 50px;
+    border-radius: 15px;
+    background-color: darkgoldenrod;
+}

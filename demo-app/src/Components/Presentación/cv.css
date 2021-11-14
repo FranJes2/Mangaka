@@ -1,10 +1,16 @@
 .custom-title{
+    background-color: lavender;
     color: darkviolet;
-    font-size: 30px;
+    font-size: 25px;
     font-family: "Malgun Gothic", sans-serif;
+
 }
 
-.parrafo{
+.Parrafos{
+    background-color: #61dafb;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
     color: brown;
     font-size: 20px;
     font-family: "Malgun Gothic", Segoe, Arial, sans-serif;
@@ -12,12 +18,9 @@
 
 .conteiner{
     display: flex;
-    flex-direction: row;
+    background-color: darkgray;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 40px;
-}
-
-.item{
-    background-color: lavender;
 }

@@ -10,18 +10,20 @@ import Logueo from "./Components/Presentación/Logueo";
 import Courses from "./Components/Presentación/Courses";
 import CourseDetail from "./Components/Presentación/CourseDetail";
 import AuthRoute from "./Components/Presentación/AuthRoute";
-import Mangaka from "./Components/Presentación/Mangaka.js";
+import Mangaka from "./Components/Presentación/Mangaka";
+import Registro from "./Components/Presentación/Registro";
+import Biblioteca from "./Components/Presentación/Biblioteca"
 
 function App() {
   return (     <Router>
         <div>
           <Switch>
             <Route path={"/"} exact={true}>
-              <div>
+              <div className="BottonLogin">
                 <nav>
                   <ul>
                     <li>
-                      <Link to ="/Logueo">Logueo</Link>
+                      <Link to ="/Login">Login</Link>
                     </li>
                   </ul>
                 </nav>
@@ -35,7 +37,21 @@ function App() {
                 <nav>
                   <ul>
                     <li>
-                      <Link to ="/mangaka">mangaka</Link>
+                      <Link to ="/Mangaka">Mangaka</Link>
+                    </li>
+                  </ul>
+                </nav>
+                <nav>
+                  <ul>
+                    <li>
+                      <Link to ="/Registro">Registro</Link>
+                    </li>
+                  </ul>
+                </nav>
+                <nav>
+                  <ul>
+                    <li>
+                      <Link to ="/Biblioteca">Biblioteca</Link>
                     </li>
                   </ul>
                 </nav>
@@ -47,8 +63,14 @@ function App() {
             <Route exact={true} path={`/Courses`}>
               <Courses />
             </Route>
-            <Route exact={true} path={`/mangaka`}>
+            <Route exact={true} path={`/Mangaka`}>
               <Mangaka />
+            </Route>
+            <Route exact={true} path={'/Registro'}>
+              <Registro />
+            </Route>
+            <Route exact={true} path={'/Biblioteca'}>
+              <Biblioteca />
             </Route>
             <AuthRoute exact={true} path={`/Courses/details/:id`}>
               <CourseDetail/>

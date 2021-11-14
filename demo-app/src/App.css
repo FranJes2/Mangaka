@@ -2,7 +2,6 @@ body {
   background-image: url("Main.png");
   min-height:100%;
   background-size:cover;
-  background-color: #282c34;
 }
 .App {
   text-align: center;
@@ -32,7 +31,6 @@ body {
 .App-link {
   color: #61dafb;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
