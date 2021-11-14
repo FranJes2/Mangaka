@@ -5,7 +5,11 @@ import {Link} from "react-router-dom";
 
 const Login = () => {
     return(
+
         <form className={"Loggiinn"}>
+            <div className="Sticker">
+                <img src="Sticker.jpg"/>
+            </div>
             <div>
                 <label>Email address</label>
                 <input type="email"/>
