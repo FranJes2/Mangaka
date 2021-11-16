@@ -5,25 +5,22 @@ import {Link} from "react-router-dom";
 
 const Login = () => {
     return(
-
+        <picture>
+            <img src= "Sticker.png" alt="Mangaka"/>
         <form className={"Loggiinn"}>
-            <div className="Sticker">
-                <img src="Sticker.jpg"/>
+            <div>
+                Email: <input type="email" name="correo" placeholder="nombre@dominio.com" />
             </div>
             <div>
-                <label>Email address</label>
-                <input type="email"/>
-            </div>
-            <div>
-                <label>Password</label>
-                <input type="password"/>
+                Contraseña: <input type="password" name="contraseña" placeholder={"**********"}/>
             </div>
             <div>
                 <input type="checkbox" id="btn-check-outlinedCheck" autocomplete="off"/>
-                    <label for="btn-check-outlined">Acepto</label>
+                    <label for="btn-check-outlined">Mantener Sesión</label>
             </div>
             <button type="submit">Submit</button>
         </form>
+        </picture>
     )
 }
 export default Login

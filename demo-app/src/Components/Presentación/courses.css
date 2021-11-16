@@ -1,17 +1,25 @@
 .Sekai{
-    background-image: url("Color de Fondo.png");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    height: 100%;
-}
-
-.main-div{
     margin-left: 20px;
     color: darkslateblue;
 }
+
+.main-div{ background-image: url("Color de Fondo.png");
+    background-position: left;
+    padding: 10px;
+    margin: 50px;
+    border-radius: 15px;
+}
+
+.custom-title{
+    background-image: url("Color de Fondo.png");
+    background-position: right;
+    padding: 10px;
+    margin: 50px;
+    border-radius: 15px;
+}
+
 .description{
+
     font-weight: bold;
     color: darkcyan;
 }

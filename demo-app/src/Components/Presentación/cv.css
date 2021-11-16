@@ -1,17 +1,19 @@
 .custom-title{
-    background-color: lavender;
-    color: darkviolet;
+    color: yellow;
     font-size: 25px;
     font-family: "Malgun Gothic", sans-serif;
+}
 
+.OtroCont{
+    background-color: #1883ba;
+    gap: 30px;
 }
 
 .Parrafos{
-    background-color: #61dafb;
-    display: flex;
-    flex-direction: column;
+    background-image: url("Color de Fondo.png") ;
+    background-position: right;
     border-radius: 10px;
-    color: brown;
+    color: black;
     font-size: 20px;
     font-family: "Malgun Gothic", Segoe, Arial, sans-serif;
 }
@@ -22,5 +24,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
 }
