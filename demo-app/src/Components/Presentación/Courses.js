@@ -1,9 +1,23 @@
 import './courses.css';
-import {useState} from "react";
+import {useEffect, useLayoutEffect, useState} from "react";
 import {Link} from "react-router-dom";
+import * as url from "url";
+import {httpGet} from "../../utils/httpFunction";
+
 
 const Courses = () => {
+
     const subjects = ['Curso Principiantes', 'Curso Intermedio', 'Curso Avanzado']
+
+    const [courses, setCourses ] = useState( initialState: [])
+
+    const fetchCourses = () => {
+        httpGet('api/courses/')
+            .then((data :void) = setCourses(data))
+    }
+    useEffect(fetchCourses, [])
+
+
 
     return(
         <div className="Sekai">

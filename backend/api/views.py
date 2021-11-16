@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 # Create your views here.
 from rest_framework import viewsets, generics
 from rest_framework.decorators import api_view, permission_classes
@@ -8,7 +7,6 @@ from rest_framework.response import Response
 
 from api.models import Course, Gallery
 from api.serializers import CourseSerializer, GallerySerializer, RegisterSerializer, MeSerializer
-
 
 class CourseViewSet(viewsets.ModelViewSet):
     serializer_class = CourseSerializer
