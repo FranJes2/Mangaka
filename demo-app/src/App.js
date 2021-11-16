@@ -12,80 +12,91 @@ import CourseDetail from "./Components/Presentación/CourseDetail";
 import AuthRoute from "./Components/Presentación/AuthRoute";
 import Mangaka from "./Components/Presentación/Mangaka";
 import Registro from "./Components/Presentación/Registro";
-import Biblioteca from "./Components/Presentación/Biblioteca"
+import render from "./Components/Presentación/Biblioteca";
 
 function App() {
-  return (     <Router>
-        <div>
-          <Switch>
-            <Route path={"/"} exact={true}>
-              <div className="BottonLogin">
-                <nav>
-                  <ul>
-                    <li>
-                      <Link to ="/Login">Login</Link>
-                    </li>
-                  </ul>
-                </nav>
-                <nav>
-                  <ul>
-                    <li>
-                      <Link to ="/Courses">Courses</Link>
-                    </li>
-                  </ul>
-                </nav>
-                <nav>
-                  <ul>
-                    <li>
-                      <Link to ="/Mangaka">Mangaka</Link>
-                    </li>
-                  </ul>
-                </nav>
-                <nav>
-                  <ul>
-                    <li>
-                      <Link to ="/Registro">Registro</Link>
-                    </li>
-                  </ul>
-                </nav>
-                <nav>
-                  <ul>
-                    <li>
-                      <Link to ="/Biblioteca">Biblioteca</Link>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            </Route>
-            <Route exact={true} path={'/Login'}>
-              <Logueo />
-              </Route>
-            <Route exact={true} path={`/Courses`}>
-              <Courses />
-            </Route>
-            <Route exact={true} path={`/Mangaka`}>
-              <Mangaka />
-            </Route>
-            <Route exact={true} path={'/Registro'}>
-              <Registro />
-            </Route>
-            <Route exact={true} path={'/Biblioteca'}>
-              <Biblioteca />
-            </Route>
-            <AuthRoute exact={true} path={`/Courses/details/:id`}>
-              <CourseDetail/>
-            </AuthRoute>
-            <Route path="*">
-              <div><h1>404</h1></div>
-            </Route>
-          </Switch>
-        </div>
+  return (
+      <Router>
+        <nav>
+          <nav className="navbar navbar-dark bg-dark">
+            <Switch>
+              <nav className="navbar navbar-dark bg-dark">
+                <Route path={"/"} exact={true}>
+                  <div class="container-fluid">
+                    <nav>
+                      <ul>
+                        <li>
+                          <button type="button" className="btn btn-outline-warning">
+                            <Link to ="/Login">Login</Link>
+                          </button>
+                        </li>
+                      </ul>
+                    </nav>
+                    <nav>
+                      <ul>
+                        <li>
+                          <button type="button" className="btn btn-outline-warning">
+                            <Link to ="/Courses">Courses</Link>
+                          </button>
+                        </li>
+                      </ul>
+                    </nav>
+                    <nav>
+                      <ul>
+                        <li>
+                          <button type="button" className="btn btn-outline-warning">
+                            <Link to ="/Mangaka">Mangaka</Link>
+                          </button>
+                        </li>
+                      </ul>
+                    </nav>
+                    <nav>
+                      <ul>
+                        <li>
+                          <button type="button" className="btn btn-outline-warning">
+                            <Link to ="/Registro">Registro</Link>
+                          </button>
+                        </li>
+                      </ul>
+                    </nav>
+                    <nav>
+                      <ul>
+                        <li>
+                          <button type="button" className="btn btn-outline-warning">
+                            <Link to ="/Biblioteca">Biblioteca</Link>
+                          </button>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </Route>
+                <Route exact={true} path={'/Login'}>
+                  <Logueo />
+                </Route>
+                <Route exact={true} path={`/Courses`}>
+                  <Courses />
+                </Route>
+                <Route exact={true} path={`/Mangaka`}>
+                  <Mangaka />
+                </Route>
+                <Route exact={true} path={'/Registro'}>
+                  <Registro />
+                </Route>
+                <Route exact={true} path={'/Biblioteca'}>
+                  <Biblioteca />
+                </Route>
+
+                <AuthRoute exact={true} path={`/Courses/details/:id`}>
+                  <CourseDetail/>
+                </AuthRoute>
+              </nav>
+            </Switch>
+            <a href="javascript:history.go(-1)" className="btn btn-outline-light">Atrás</a>
+          </nav>
+        </nav>
       </Router>
   );
 }
 
+
 export default App;
-
-
-
-
