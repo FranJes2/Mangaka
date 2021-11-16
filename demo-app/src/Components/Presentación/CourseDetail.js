@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 
 const CourseDetail = ({name, description, hours, price}) =>{
-    let {id} = useParams()
+    let { id } = useParams();
     return (
         <div>
             <h1>{name}</h1>
@@ -13,3 +13,4 @@ const CourseDetail = ({name, description, hours, price}) =>{
 }
 
 export default CourseDetail
+

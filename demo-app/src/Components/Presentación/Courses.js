@@ -3,7 +3,7 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 
 const Courses = () => {
-    const subjects = ['Curso 1', 'Curso 2', 'Curso 3']
+    const subjects = ['Curso Principiantes', 'Curso Intermedio', 'Curso Avanzado']
 
     return(
         <div className="Sekai">

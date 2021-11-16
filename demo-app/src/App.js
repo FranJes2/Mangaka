@@ -75,6 +75,9 @@ function App() {
             <AuthRoute exact={true} path={`/Courses/details/:id`}>
               <CourseDetail/>
             </AuthRoute>
+            <Route path="*">
+              <div><h1>404</h1></div>
+            </Route>
           </Switch>
         </div>
       </Router>
@@ -82,3 +85,7 @@ function App() {
 }
 
 export default App;
+
+
+
+
