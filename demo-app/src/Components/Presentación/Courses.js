@@ -1,16 +1,41 @@
 import './courses.css';
+import './Finalcourses';
 import {useEffect, useLayoutEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import {httpGet, httpPost} from "../../utils/httpFunction";
+import * as url from "url";
+import {httpGet} from "../../utils/httpFunction";
+import {httpPost} from "../../utils/httpFunction";
 
 
 const Courses = () => {
 
-    const [courses, setCourses] = useState([])
-
+    const [courses, setCourses ] = useState( [])
     const [name, setName] = useState([])
     const [description, setDescription] = useState([])
     const [price, setPrice] = useState([])
+
+    const clickFunction = () => {
+        setFiltered(!filtered)
+    }
+
+    const getName = () => {
+        return filtered ? "Dejar de filtrar" : "Filtrar"
+    }
+
+    let finalSubjects;
+
+    if (filtered) {
+        finalSubjects = subjects.filter((subject) => {
+            finalSubjects = courses.filter((subject) => {
+                return subject.approved > 10
+            })
+        }
+        else {
+            finalSubjects = subjects
+            finalSubjects = courses
+        }
+    }
+
 
     const fetchCourses = () => {
         httpGet('api/courses/')
@@ -18,21 +43,18 @@ const Courses = () => {
     }
 
     const createCourse = () => {
-        httpPost('api/courses/', {name: name, description: description, price: price})
+        httpPost('api/courses/', { name: name, description: description})
             .then(fetchCourses)
     }
 
     useEffect(fetchCourses, [])
 
-
-    return (
+    return(
         <div className="Sekai">
             <div className="main-div">
                 <h1 className="custom-title"> Convertite en Mangaka!</h1>
-                <p className="description">Aprende desde cero a crear tus propios personajes y tus propias historias con
-                    estilo manga.</p>
+                <p className="description">Aprende desde cero a crear tus propios personajes y tus propias historias con estilo manga.</p>
             </div>
-
             <div className="main-div">
                 <form onSubmit={createCourse}>
                     <fieldset>
@@ -58,7 +80,6 @@ const Courses = () => {
                     </fieldset>
                 </form>
             </div>
-
             <div className="all-cards">
                 {
                     finalSubjects
@@ -69,8 +90,10 @@ const Courses = () => {
                         })
                 }
             </div>
-        </div>)
+        </div>
+    )
 }
+
 
 
 export default Courses
