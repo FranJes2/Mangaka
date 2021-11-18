@@ -18,12 +18,8 @@ const Mangaka = () => {
             <div>
                 <p>
 
-
-                    Mi nombre es Boris Yellnikoff, dibujo desde que tengo conciencia. Crecí en una casa llena repleta de arte.
-                    Mi madre ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua.
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
+                    Mi nombre es Boris Yellnikoff, pero hace tiempo que familiares y amigos me llaman Mangaka.
+                    Y así también elijo firmar mis ilustraciones.
 
                 </p>
             </div>
@@ -31,11 +27,8 @@ const Mangaka = () => {
                 <div>
                     <p>
 
-
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                        rem aperiam,
-                        eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-
+                        Dibujo desde que tengo conciencia. De pequeño hacía garabatos sobre cualquier superficie que se me cruzara.
+                        En la juventud descrubrí la historieta y el manga, y desde entonces no paré de ilustrar y crear historias.
 
                     </p>
                 </div>
@@ -43,11 +36,8 @@ const Mangaka = () => {
             <div>
                 <p>
 
-
-                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-                    aperiam,
-                    eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-
+                    Expuse en distintas galerías de Rosario y publiqué dos libros de cómics, pero lo que más disfruto es la docencia.
+                    Te invito a que participes de mis talleres y juntos hagamos crecer una comunidad de Mangakas.
 
                 </p>
             </div>
