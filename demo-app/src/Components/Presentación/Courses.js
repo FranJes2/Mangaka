@@ -13,23 +13,6 @@ const Courses = () => {
     const [description, setDescription] = useState([])
     const [price, setPrice] = useState([])
 
-    function SubjectCard ({subject}) {
-        return (
-            <div className="contents">
-                <h2 className="title">{subject.name}</h2>
-                <div className="row-picture-desc">
-                    <p className="text1">
-                        {subject.description}
-                    </p>
-                </div>
-                <div className="button">
-                    <Link to={`/Courses/detail/${subject.name}`}>
-                        <button type="button" className="btn btn-outline-danger">Comprar</button>
-                    </Link>
-                </div>
-            </div>
-        )
-    }
 
     const fetchCourses = () => {
         httpGet('api/courses/')
@@ -75,12 +58,22 @@ const Courses = () => {
                 </form>
             </div>
             <div className="all-cards">
-                {
-                    SubjectCard
-                        .map((mapSubject) => {
-                            return (
-                                <SubjectCard subject={mapSubject}/>
-                            )
+                {courses.map((mapcourses) => {
+                    return (
+                        <div className="contents">
+                            <h2 className="title">{courses.name}</h2>
+                            <div className="row-picture-desc">
+                                <p className="text1">
+                                    {courses.description}
+                                </p>
+                            </div>
+                            <div className="button">
+                                <Link to={`/Courses/detail/${courses.name}`}>
+                                    <button type="button" className="btn btn-outline-danger">Comprar</button>
+                                </Link>
+                            </div>
+                        </div>
+                    )})
                         })
                 }
             </div>
