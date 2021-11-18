@@ -9,11 +9,11 @@ function SubjectCard ({subject}) {
                     {subject.description}
                 </p>
             </div>
-            <div className ="button">
-                <Link to={`/Courses/detail/${subject.name}`}><button type="button" className="btn btn-outline-danger">Comprar</button></Link>
+            <div className="button">
+                <Link to={`/Courses/detail/${subject.name}`}>
+                    <button type="button" className="btn btn-outline-danger">Comprar</button>
+                </Link>
             </div>
         </div>
     )
 }
-
-export default Finalcourses

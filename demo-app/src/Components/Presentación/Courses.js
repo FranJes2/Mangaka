@@ -1,5 +1,4 @@
 import './courses.css';
-import './Finalcourses';
 import {useEffect, useLayoutEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import * as url from "url";
@@ -14,28 +13,23 @@ const Courses = () => {
     const [description, setDescription] = useState([])
     const [price, setPrice] = useState([])
 
-    const clickFunction = () => {
-        setFiltered(!filtered)
+    function SubjectCard ({subject}) {
+        return (
+            <div className="contents">
+                <h2 className="title">{subject.name}</h2>
+                <div className="row-picture-desc">
+                    <p className="text1">
+                        {subject.description}
+                    </p>
+                </div>
+                <div className="button">
+                    <Link to={`/Courses/detail/${subject.name}`}>
+                        <button type="button" className="btn btn-outline-danger">Comprar</button>
+                    </Link>
+                </div>
+            </div>
+        )
     }
-
-    const getName = () => {
-        return filtered ? "Dejar de filtrar" : "Filtrar"
-    }
-
-    let finalSubjects;
-
-    if (filtered) {
-        finalSubjects = subjects.filter((subject) => {
-            finalSubjects = courses.filter((subject) => {
-                return subject.approved > 10
-            })
-        }
-        else {
-            finalSubjects = subjects
-            finalSubjects = courses
-        }
-    }
-
 
     const fetchCourses = () => {
         httpGet('api/courses/')
@@ -43,7 +37,7 @@ const Courses = () => {
     }
 
     const createCourse = () => {
-        httpPost('api/courses/', { name: name, description: description})
+        httpPost('api/courses/', { name: name, description: description, price: price})
             .then(fetchCourses)
     }
 
@@ -82,7 +76,7 @@ const Courses = () => {
             </div>
             <div className="all-cards">
                 {
-                    finalSubjects
+                    SubjectCard
                         .map((mapSubject) => {
                             return (
                                 <SubjectCard subject={mapSubject}/>

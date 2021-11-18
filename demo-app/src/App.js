@@ -12,7 +12,7 @@ import CourseDetail from "./Components/Presentación/CourseDetail";
 import AuthRoute from "./Components/Presentación/AuthRoute";
 import Mangaka from "./Components/Presentación/Mangaka";
 import Registro from "./Components/Presentación/Registro";
-import render from "./Components/Presentación/Biblioteca";
+
 
 function App() {
   return (
@@ -59,15 +59,6 @@ function App() {
                         </li>
                       </ul>
                     </nav>
-                    <nav>
-                      <ul>
-                        <li>
-                          <button type="button" className="btn btn-outline-warning">
-                            <Link to ="/Biblioteca">Biblioteca</Link>
-                          </button>
-                        </li>
-                      </ul>
-                    </nav>
                   </div>
                 </Route>
                 <Route exact={true} path={'/Login'}>
@@ -82,10 +73,6 @@ function App() {
                 <Route exact={true} path={'/Registro'}>
                   <Registro />
                 </Route>
-                <Route exact={true} path={'/Biblioteca'}>
-                  <Biblioteca />
-                </Route>
-
                 <AuthRoute exact={true} path={`/Courses/details/:id`}>
                   <CourseDetail/>
                 </AuthRoute>
