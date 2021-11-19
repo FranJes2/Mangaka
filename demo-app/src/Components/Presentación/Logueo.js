@@ -1,20 +1,23 @@
 import './Login.css';
-import {useEffect, useLayoutEffect, useState} from "react";
+import {useState} from "react";
 import {Link} from "react-router-dom";
 import * as url from "url";
-import {httpGet} from "../../utils/httpFunction";
 import {httpPost} from "../../utils/httpFunction";
+import {useHistory} from "react-router-dom";
+
 
 const Login = () => {
     const [username, setUsername] = useState([])
     const [password, setPassword] = useState([])
 
+    const history = useHistory();
 
-const LoginScreen = (e) => {
-    e.preventDefault()
-    httpPost('api/login', {username: username, password: password}).then((res: AxiosResponse<any>) => {
-        localStorage.setItem('token', res.data.access)}
-}
+    const LoginScreen = (e) => {
+        e.preventDefault()
+        httpPost('api/login', {username: username, password: password}).then((res) => {
+        localStorage.setItem('token', res.data.access)
+        history.push('/main')})
+    }
 
 
     return(
@@ -24,7 +27,7 @@ const LoginScreen = (e) => {
                 type="email"
                 id="exampleFormControlInput1"
                 value={username}
-                onChange={(e :ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
+                onChange={(e ) => setUsername(e.target.value)}
                 placeholder="nombre@dominio.com" />
             </div>
             <div>
@@ -32,7 +35,7 @@ const LoginScreen = (e) => {
                 type="password"
                 id="exampleFormControlInput1"
                 value={password}
-                onChange={(e :ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                onChange={(e ) => setPassword(e.target.value)}
                 placeholder="**********"/>
             </div>
             <div>
