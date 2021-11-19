@@ -1,0 +1,11 @@
+.Perfil{
+    background-image: url("Nav2.png");
+    background-size: 180px;
+    background-repeat: repeat;
+    background-position: center;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 15px;
+    font-family: cursive;
+    color: azure;
+}

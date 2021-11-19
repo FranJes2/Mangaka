@@ -12,6 +12,8 @@ import CourseDetail from "./Components/Presentación/CourseDetail";
 import AuthRoute from "./Components/Presentación/AuthRoute";
 import Mangaka from "./Components/Presentación/Mangaka";
 import Registro from "./Components/Presentación/Registro";
+import Profile from "./Components/Presentación/MiPerfil"
+import MiPerfil from "./Components/Presentación/MiPerfil";
 
 function App() {
   return (
@@ -58,6 +60,15 @@ function App() {
                         </li>
                       </ul>
                     </nav>
+                    <nav>
+                      <ul>
+                        <li>
+                          <button type="button" className="btn btn-outline-warning">
+                            <Link to ="/MiPerfil">Perfil</Link>
+                          </button>
+                        </li>
+                      </ul>
+                    </nav>
                   </div>
                 </Route>
                 <Route exact={true} path={'/Login'}>
@@ -71,6 +82,9 @@ function App() {
                 </Route>
                 <Route exact={true} path={'/Registro'}>
                   <Registro />
+                </Route>
+                <Route exact={true} path={'/MiPerfil'}>
+                  <MiPerfil />
                 </Route>
                 <AuthRoute exact={true} path={`/Courses/details/:id`}>
                   <CourseDetail/>

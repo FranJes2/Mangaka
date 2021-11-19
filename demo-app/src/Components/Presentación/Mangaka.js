@@ -3,18 +3,15 @@ import './cv.css';
 const Mangaka = () => {
     return(
     <div className="conteiner">
-        <picture>
-            <img src= "MangakaCV.png" alt="Mangaka"/>
-        </picture>
             <div>
-                <div className={"Fxtitle"}>
+                <div>
                     <h2 className="custom-title">
                         SOBRE MÍ
                     </h2>
                 </div>
             </div>
-        <div className="OtroCont">
-        <div className={"Parrafos"}>
+        <div>
+        <div className="Parrafos">
             <div>
                 <p>
 
