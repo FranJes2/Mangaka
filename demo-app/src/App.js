@@ -6,13 +6,12 @@ import {
   Switch,
   Route, Link,
 } from "react-router-dom";
-import Logueo from "./Components/Presentación/Logueo";
+import Login from "./Components/Presentación/Logueo";
 import Courses from "./Components/Presentación/Courses";
 import CourseDetail from "./Components/Presentación/CourseDetail";
 import AuthRoute from "./Components/Presentación/AuthRoute";
 import Mangaka from "./Components/Presentación/Mangaka";
 import Registro from "./Components/Presentación/Registro";
-
 
 function App() {
   return (
@@ -62,7 +61,7 @@ function App() {
                   </div>
                 </Route>
                 <Route exact={true} path={'/Login'}>
-                  <Logueo />
+                  <Login />
                 </Route>
                 <Route exact={true} path={`/Courses`}>
                   <Courses />

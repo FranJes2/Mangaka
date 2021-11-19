@@ -48,3 +48,11 @@ body {
   border-radius: 15px;
   background-color: darkgoldenrod;
 }
+
+.Nav02{
+  position: center;
+  background-image: url("./Components/Presentación/Nav2.png");
+  background-size: 170px;
+  background-repeat: repeat;
+  background-position: center;
+}

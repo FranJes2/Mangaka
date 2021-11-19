@@ -1,18 +1,39 @@
 import './Login.css';
-import {useState} from "react";
+import {useEffect, useLayoutEffect, useState} from "react";
 import {Link} from "react-router-dom";
-
+import * as url from "url";
+import {httpGet} from "../../utils/httpFunction";
+import {httpPost} from "../../utils/httpFunction";
 
 const Login = () => {
+    const [username, setUsername] = useState([])
+    const [password, setPassword] = useState([])
+
+
+const LoginScreen = (e) => {
+    e.preventDefault()
+    httpPost('api/login', {username: username, password: password}).then((res: AxiosResponse<any>) => {
+        localStorage.setItem('token', res.data.access)}
+}
+
+
     return(
-        <picture>
-            <img src= "Sticker.png" alt="Mangaka"/>
-        <form className={"Loggiinn"}>
+        <form className="LoginScreen" onSubmit={Login}>
             <div>
-                Email: <input type="email" name="correo" placeholder="nombre@dominio.com" />
+                Email: <input
+                type="email"
+                id="exampleFormControlInput1"
+                value={username}
+                onChange={(e :ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)}
+                placeholder="nombre@dominio.com" />
             </div>
             <div>
-                Contraseña: <input type="password" name="contraseña" placeholder={"**********"}/>
+                Contraseña: <input
+                type="password"
+                id="exampleFormControlInput1"
+                value={password}
+                onChange={(e :ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                placeholder="**********"/>
             </div>
             <div>
                 <input type="checkbox" id="btn-check-outlinedCheck" autocomplete="off"/>
@@ -20,7 +41,6 @@ const Login = () => {
             </div>
             <button type="submit">Submit</button>
         </form>
-        </picture>
     )
 }
 export default Login
