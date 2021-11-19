@@ -1,9 +1,7 @@
 import './Login.css';
 import {useState} from "react";
-import {Link} from "react-router-dom";
-import * as url from "url";
 import {httpPost} from "../../utils/httpFunction";
-import {useHistory} from "react-router-dom";
+import {useHistory} from 'react-router-dom'
 
 
 const Login = () => {
@@ -39,10 +37,8 @@ const Login = () => {
                 placeholder="**********"/>
             </div>
             <div>
-                <input type="checkbox" id="btn-check-outlinedCheck" autocomplete="off"/>
-                    <label for="btn-check-outlined">Mantener Sesión</label>
+                <button type="submit" className="btn btn-primary">Inicia Sesión</button>
             </div>
-            <button type="submit">Submit</button>
         </form>
     )
 }
