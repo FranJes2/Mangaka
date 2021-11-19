@@ -4,10 +4,12 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from api.views import CourseViewSet, RegisterView, me
 from api.views import GalleryViewSet
+from api.views import RegisterViewSet
 
 router = routers.DefaultRouter()
 router.register(r'courses', CourseViewSet)
 router.register(r'gallery', GalleryViewSet)
+router.register(r'register', RegisterViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),

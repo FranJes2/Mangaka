@@ -6,7 +6,7 @@ import {
   Switch,
   Route, Link,
 } from "react-router-dom";
-import Login from "./Components/Presentación/Logueo";
+import Login from "./Components/Presentación/Login";
 import Courses from "./Components/Presentación/Courses";
 import CourseDetail from "./Components/Presentación/CourseDetail";
 import AuthRoute from "./Components/Presentación/AuthRoute";
@@ -16,7 +16,7 @@ import Registro from "./Components/Presentación/Registro";
 function App() {
   return (
       <Router>
-        <nav>
+        <nav className="Nav02">
           <nav className="navbar navbar-dark bg-dark">
             <Switch>
               <nav className="navbar navbar-dark bg-dark">

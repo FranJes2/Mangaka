@@ -3,6 +3,7 @@ from rest_framework import serializers
 
 from api.models import Course
 from api.models import Gallery
+from api.models import Register
 
 
 class CourseSerializer(serializers.ModelSerializer):
@@ -15,7 +16,13 @@ class GallerySerializer(serializers.ModelSerializer):
         model = Gallery
         fields = "__all__"
 
+
 class RegisterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Register
+        fields = "__all__"
+
+class LoginSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 
     class Meta:
@@ -30,7 +37,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 class MeSerializer(serializers.ModelSerializer):
-    class Meta :
+    class Meta:
         model = get_user_model()
         fields = "__all__"
 

@@ -1,11 +1,14 @@
 
-.Loggiinn{
+.LoginScreen{
     display: flex;
     flex-direction: column;
     padding: 10px;
     margin: 50px;
     border-radius: 15px;
     background-color: darkgoldenrod;
+}
+.fx{
+    background-image: url("Nav2.png") ;
 }
 
 .Sticker {

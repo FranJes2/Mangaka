@@ -39,20 +39,16 @@ body {
     transform: rotate(360deg);
   }
 }
-
-.navbar navbar-dark bg-dark{
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-  margin: 50px;
+.navbar{
   border-radius: 15px;
-  background-color: darkgoldenrod;
 }
 
 .Nav02{
-  position: center;
   background-image: url("./Components/Presentación/Nav2.png");
-  background-size: 170px;
+  background-size: 180px;
   background-repeat: repeat;
   background-position: center;
+  padding: 20px;
+  margin: 15px;
+  border-radius: 15px;
 }

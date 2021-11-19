@@ -2,7 +2,7 @@ import './Register.css';
 import {useEffect, useLayoutEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import * as url from "url";
-import {httpGet} from "./httpFuntion";
+import {httpGet} from "../../utils/httpFunction";
 import {httpPost} from "../../utils/httpFunction";
 
 const Registro = () => {
@@ -66,7 +66,7 @@ useEffect(fetchUsuario, [])
                    name="web"
                    onChange={(e) => setPgweb(e.target.value)}
                    placeholder="https://pagina.com/" />
-            Por favor, complete su ubicación:
+            <label>Por favor, complete su ubicación:</label>
                 País:
             <input type="text"
                    name="país"
