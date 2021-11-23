@@ -16,12 +16,6 @@ class GallerySerializer(serializers.ModelSerializer):
         model = Gallery
         fields = "__all__"
 
-
-class RegisterSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Register
-        fields = "__all__"
-
 class LoginSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
 
