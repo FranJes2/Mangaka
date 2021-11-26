@@ -5,6 +5,7 @@ const AuthRoute = ({exact, children, path}) => {
 
     const isLoggedIn = false;
 
+
     return (
         <Route
             exact={exact}

@@ -59,7 +59,7 @@ const Courses = () => {
                 </form>
             </div>
             <div className="all-cards">
-                {courses.map((mapcourses) => {
+                {courses.map((courses) => {
                     return (
                         <div className="contents">
                             <h2 className="title">{courses.name}</h2>
