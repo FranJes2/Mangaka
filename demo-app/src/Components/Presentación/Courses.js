@@ -19,7 +19,8 @@ const Courses = () => {
             .then((res) => setCourses(res.data))
     }
 
-    const createCourse = () => {
+    const createCourse = (e) => {
+        e.preventDefault()
         httpPost('api/courses/', { name: name, description: description, price: price})
             .then(fetchCourses)
     }
@@ -74,8 +75,8 @@ const Courses = () => {
                             </div>
                         </div>
                     )})
-                        })
-                }
+                        }
+
             </div>
         </div>
     )
