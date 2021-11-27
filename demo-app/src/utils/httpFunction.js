@@ -14,3 +14,10 @@ export const httpPost = async (endpoint, data) => {
         }})
     }
 
+export const httpDelete = async (endpoint) => {
+        return axios.delete( baseUrl + endpoint, {
+            headers: {
+            authorization: 'Bearer' + localStorage.getItem('token')
+        }})
+}
+
