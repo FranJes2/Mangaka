@@ -7,7 +7,6 @@ import {useHistory} from 'react-router-dom'
 const Login = () => {
     const [username, setUsername] = useState([])
     const [password, setPassword] = useState([])
-
     const history = useHistory();
 
     const LoginScreen = (e) => {
@@ -16,7 +15,6 @@ const Login = () => {
         localStorage.setItem('token', res.data.access)
         history.push('/')})
     }
-
 
     return(
         <form className="LoginScreen" onSubmit={LoginScreen}>
