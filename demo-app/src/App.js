@@ -84,7 +84,9 @@ function App() {
                   <Registro />
                 </Route>
                 <Route exact={true} path={'/MiPerfil'}>
-                  <MiPerfil />
+                  <AuthRoute exact={true} path={`/MiPerfil`}>
+                    <MiPerfil/>
+                  </AuthRoute>
                 </Route>
                 <AuthRoute exact={true} path={`/Courses/details/:id`}>
                   <CourseDetail/>

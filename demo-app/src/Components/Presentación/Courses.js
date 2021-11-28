@@ -2,9 +2,8 @@ import './courses.css';
 import {useEffect, useLayoutEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import * as url from "url";
-import {httpDelete, httpGet} from "../../utils/httpFunction";
+import {httpGet} from "../../utils/httpFunction";
 import {httpPost} from "../../utils/httpFunction";
-import data from "bootstrap/js/src/dom/data";
 
 
 const Courses = () => {
@@ -14,24 +13,15 @@ const Courses = () => {
     const [description, setDescription] = useState([])
     const [price, setPrice] = useState([])
 
+
     const fetchCourses = () => {
         httpGet('api/courses/')
-            .then((res) => {
-                console.log(res.data)
-                setCourses(res.data)
-            })
+            .then((res) => setCourses(res.data))
     }
 
     const createCourse = (e) => {
         e.preventDefault()
         httpPost('api/courses/', { name: name, description: description, price: price})
-            .then((fetchCourses) => {
-                console.log(fetchCourses)
-            })
-    }
-
-    const deleteCourse = (courseId) => {
-        httpDelete('api/courses/'+ courseId + "/")
             .then(fetchCourses)
     }
 
@@ -70,18 +60,19 @@ const Courses = () => {
                 </form>
             </div>
             <div className="all-cards">
-                {courses.map((course) => {
+                {courses.map((courses) => {
                     return (
                         <div className="contents">
-                            <h2 className="title">{course.name}</h2>
+                            <h2 className="title">{courses.name}</h2>
                             <div className="row-picture-desc">
                                 <p className="text1">
-                                    {course.description}
+                                    {courses.description}
                                 </p>
                             </div>
                             <div className="button">
+                                <Link to={`/Courses/detail/${courses.name}`}>
                                     <button type="button" className="btn btn-outline-danger">Comprar</button>
-                                    <button type="button" className="btn btn-outline-danger" onClick={() =>deleteCourse(course.id)}>Eliminar</button>
+                                </Link>
                             </div>
                         </div>
                     )})

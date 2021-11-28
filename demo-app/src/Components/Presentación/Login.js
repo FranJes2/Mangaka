@@ -12,29 +12,27 @@ const Login = () => {
 
     const LoginScreen = (e) => {
         e.preventDefault()
-        httpPost('api/login', {username: username, password: password}).then((res) => {
+        httpPost('api/login/', {username: username, password: password}).then((res) => {
         localStorage.setItem('token', res.data.access)
-        history.push('/main')})
+        history.push('/')})
     }
 
 
     return(
-        <form className="LoginScreen" onSubmit={Login}>
+        <form className="LoginScreen" onSubmit={LoginScreen}>
             <div>
-                Email: <input
-                type="email"
+                Nombre de Usuario: <input
+                type="text"
                 id="exampleFormControlInput1"
                 value={username}
-                onChange={(e ) => setUsername(e.target.value)}
-                placeholder="nombre@dominio.com" />
+                onChange={(e ) => setUsername(e.target.value)}/>
             </div>
             <div>
                 Contraseña: <input
                 type="password"
                 id="exampleFormControlInput1"
                 value={password}
-                onChange={(e ) => setPassword(e.target.value)}
-                placeholder="**********"/>
+                onChange={(e ) => setPassword(e.target.value)}/>
             </div>
             <div>
                 <button type="submit" className="btn btn-primary">Inicia Sesión</button>
