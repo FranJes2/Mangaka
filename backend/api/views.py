@@ -6,7 +6,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from api.models import Course, Gallery
-from api.serializers import CourseSerializer, GallerySerializer, LoginSerializer, MeSerializer, RegisterSerializer
+from api.serializers import CourseSerializer, GallerySerializer, MeSerializer, RegisterSerializer
 
 
 class CourseViewSet(viewsets.ModelViewSet):
@@ -19,9 +19,6 @@ class RegisterView(generics.CreateAPIView):
 class GalleryViewSet(viewsets.ModelViewSet):
     serializer_class = GallerySerializer
     queryset = Gallery.objects.all()
-
-class LoginView(generics.CreateAPIView):
-    serializer_class = LoginSerializer
 
 @api_view(["GET"])
 @permission_classes([IsAuthenticated])
