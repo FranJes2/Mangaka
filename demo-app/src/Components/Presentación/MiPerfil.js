@@ -1,13 +1,13 @@
 import {useEffect, useState} from "react";
 import './MiPerfil.css';
-import {httpGet} from "../../utils/httpFunction";
+import {httpGet, httpGet2} from "../../utils/httpFunction";
 
 const Profile = () => {
 
     const [userData, setUserData] = useState({})
 
     useEffect(() => {
-        httpGet('api/me/').then((res) => setUserData(res.data))
+        httpGet2('api/me/').then((res) => setUserData(res.data))
     }, [])
 
     return(
