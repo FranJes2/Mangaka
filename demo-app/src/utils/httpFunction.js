@@ -25,6 +25,7 @@ export const httpPut = async (endpoint, data) => {
             authorization: 'Bearer' + localStorage.getItem('token')
         }})
 }
+
 export const httpDelete = async (endpoint) => {
         return axios.delete( baseUrl + endpoint, {
             headers: {

@@ -2,7 +2,7 @@ import './courses.css';
 import {useEffect, useLayoutEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import * as url from "url";
-import {httpDelete, httpGet} from "../../utils/httpFunction";
+import {httpDelete, httpGet, httpPost2, httpPut} from "../../utils/httpFunction";
 import {httpPost} from "../../utils/httpFunction";
 
 
@@ -12,6 +12,7 @@ const Courses = () => {
     const [name, setName] = useState([])
     const [description, setDescription] = useState([])
     const [price, setPrice] = useState([])
+    const [id, setId] = useState([])
 
 
     const fetchCourses = () => {
@@ -30,8 +31,13 @@ const Courses = () => {
             .then(fetchCourses)
     }
 
+    const editCourse = (courseId) => {
+        httpPut('api/courses/'+ courseId + "/", {name: name, description: description, price: price})
+            .then(fetchCourses)
+    }
 
-    useEffect(fetchCourses, [])
+
+        useEffect(fetchCourses, [])
 
     return(
         <div className="Sekai">
@@ -64,18 +70,52 @@ const Courses = () => {
                     </fieldset>
                 </form>
             </div>
+
+
             <div className="all-cards">
                 {courses.map((course) => {
                     return (
-                        <div className="contents">
+                        <div className="contents" key={course.id}>
                             <h2 className="title">{course.name}</h2>
                             <div className="row-picture-desc">
                                 <p className="text1">
                                     {course.description}
                                 </p>
                             </div>
+                            <div className="row-picture-desc">
+                                <p className="text1">
+                                    {course.price}
+                                </p>
+                            </div>
                             <div className="button">
                                 <button type="button" className="btn btn-outline-danger" onClick={() =>deleteCourse(course.id)}>Eliminar</button>
+                            </div>
+                            <div className="main-div">
+                                <form onSubmit={editCourse}>
+                                    <fieldset>
+                                        <legend>Actualizar los datos</legend>
+                                        <div className="mb-3">
+                                            <label htmlFor="disabledTextInput" className="form-label">Name</label>
+                                            <input type="text" id="disabledTextInput" className="form-control" value={name}
+                                                   onChange={(e) => setName(e.target.value)}/>
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="disabledTextInput" className="form-label">Description</label>
+                                            <input type="text" id="disabledTextInput" className="form-control" value={description}
+                                                   onChange={(e) => setDescription(e.target.value)}
+                                            />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="disabledTextInput" className="form-label">Price</label>
+                                            <input type="text" id="disabledTextInput" className="form-control" value={price}
+                                                   onChange={(e) => setPrice(e.target.value)}
+                                            />
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div className="button">
+                                <button type="button" className="btn btn-outline-danger" onClick={() =>editCourse(course.id)}>ACTUALIZAR</button>
                             </div>
                         </div>
                     )})
@@ -85,7 +125,4 @@ const Courses = () => {
         </div>
     )
 }
-
-
-
-export default Courses
+export default Courses;
