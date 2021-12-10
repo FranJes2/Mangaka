@@ -13,6 +13,7 @@ const Courses = () => {
     const [description, setDescription] = useState([])
     const [price, setPrice] = useState([])
     const [id, setId] = useState([])
+    const [show, setshow] = useState(false);
 
 
     const fetchCourses = () => {
@@ -34,6 +35,18 @@ const Courses = () => {
     const editCourse = (courseId) => {
         httpPut('api/courses/'+ courseId + "/", {name: name, description: description, price: price})
             .then(fetchCourses)
+    }
+
+    const handleModalClose = (e) => {
+        const CurrentClass = e.target.className;
+        if (CurrentClass === 'main-div'){
+            return;
+        }
+        setshow(false);
+    }
+
+    const handleModalOpen = () =>{
+        setshow(true);
     }
 
 
@@ -89,33 +102,37 @@ const Courses = () => {
                             </div>
                             <div className="button">
                                 <button type="button" className="btn btn-outline-danger" onClick={() =>deleteCourse(course.id)}>Eliminar</button>
+                                <button type="button" className="btn btn-outline-danger" onClick={() =>handleModalOpen()}>Editar</button>
                             </div>
-                            <div className="main-div">
-                                <form onSubmit={editCourse}>
-                                    <fieldset>
-                                        <legend>Actualizar los datos</legend>
-                                        <div className="mb-3">
-                                            <label htmlFor="disabledTextInput" className="form-label">Name</label>
-                                            <input type="text" id="disabledTextInput" className="form-control" value={name}
-                                                   onChange={(e) => setName(e.target.value)}/>
-                                        </div>
-                                        <div className="mb-3">
-                                            <label htmlFor="disabledTextInput" className="form-label">Description</label>
-                                            <input type="text" id="disabledTextInput" className="form-control" value={description}
-                                                   onChange={(e) => setDescription(e.target.value)}
-                                            />
-                                        </div>
-                                        <div className="mb-3">
-                                            <label htmlFor="disabledTextInput" className="form-label">Price</label>
-                                            <input type="text" id="disabledTextInput" className="form-control" value={price}
-                                                   onChange={(e) => setPrice(e.target.value)}
-                                            />
-                                        </div>
-                                    </fieldset>
-                                </form>
-                            </div>
-                            <div className="button">
-                                <button type="button" className="btn btn-outline-danger" onClick={() =>editCourse(course.id)}>ACTUALIZAR</button>
+                            <div hidden={!show}>
+                                <div className="main-div">
+                                    <form onSubmit={editCourse}>
+                                        <fieldset>
+                                            <legend>Actualizar los datos</legend>
+                                            <div className="mb-3">
+                                                <label htmlFor="disabledTextInput" className="form-label">Name</label>
+                                                <input type="text" id="disabledTextInput" className="form-control" value={name}
+                                                       onChange={(e) => setName(e.target.value)}/>
+                                            </div>
+                                            <div className="mb-3">
+                                                <label htmlFor="disabledTextInput" className="form-label">Description</label>
+                                                <input type="text" id="disabledTextInput" className="form-control" value={description}
+                                                       onChange={(e) => setDescription(e.target.value)}
+                                                />
+                                            </div>
+                                            <div className="mb-3">
+                                                <label htmlFor="disabledTextInput" className="form-label">Price</label>
+                                                <input type="text" id="disabledTextInput" className="form-control" value={price}
+                                                       onChange={(e) => setPrice(e.target.value)}
+                                                />
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                                <div className="button">
+                                    <button type="button" className="btn btn-outline-danger" onClick={() =>editCourse(course.id)}>ACTUALIZAR</button>
+                                    <button type="button" className="btn btn-outline-danger" onClick={handleModalClose}>Cerrar</button>
+                                </div>
                             </div>
                         </div>
                     )})
