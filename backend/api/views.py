@@ -13,6 +13,13 @@ class CourseViewSet(viewsets.ModelViewSet):
     serializer_class = CourseSerializer
     queryset = Course.objects.all()
 
+    def get_queryset(self):
+        queryset = self.queryset
+        course_name = self.request.query_params.get('name')
+        if course_name is not None:
+            queryset = queryset.filter(name=course_name)
+        return queryset
+
 class RegisterView(generics.CreateAPIView):
     serializer_class = RegisterSerializer
 
