@@ -4,7 +4,7 @@ import {httpGet, httpGet2} from "../../utils/httpFunction";
 
 const Profile = () => {
 
-    const [userData, setUserData] = useState({})
+    const [userData, setUserData] = useState([])
 
     useEffect(() => {
         httpGet2('api/me/').then((res) => setUserData(res.data))

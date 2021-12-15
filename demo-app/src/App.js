@@ -86,9 +86,9 @@ function App() {
                 <AuthRoute exact={true} path={`/MiPerfil`}>
                     <MiPerfil/>
                 </AuthRoute>
-                <AuthRoute exact={true} path={`/Courses/details/:id`}>
+                <Route exact={true} path={`/Courses/details`}>
                   <CourseDetail/>
-                </AuthRoute>
+                </Route>
               </nav>
             </Switch>
             <a href="javascript:history.go(-1)" className="btn btn-outline-light">Atrás</a>
