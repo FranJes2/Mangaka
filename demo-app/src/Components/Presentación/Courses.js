@@ -1,6 +1,6 @@
 import './courses.css';
 import {useEffect, useLayoutEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import * as url from "url";
 import {httpDelete, httpGet, httpPost2, httpPut} from "../../utils/httpFunction";
 import {httpPost} from "../../utils/httpFunction";
@@ -13,13 +13,28 @@ const Courses = () => {
     const [description, setDescription] = useState([])
     const [price, setPrice] = useState([])
     const [id, setId] = useState([])
-    const [show, setshow] = useState(false);
+    const [filtered, setFiltered] = useState(false)
+
+
+    const clickFunction = () => {
+        setFiltered(!filtered)
+    }
+
+    const getName = () => {
+        return filtered ? "Dejar de filtrar" : "Filtrar"
+    }
 
 
     const fetchCourses = () => {
+        if (filtered) {
+            httpGet('api/courses/?name=INICIAL')
+                .then((res) => setCourses(res.data))
+        }
+        else {
         httpGet('api/courses/')
             .then((res) => setCourses(res.data))
-    }
+    }}
+
 
     const createCourse = (e) => {
         e.preventDefault()
@@ -37,20 +52,8 @@ const Courses = () => {
             .then(fetchCourses)
     }
 
-    const handleModalClose = (e) => {
-        const CurrentClass = e.target.className;
-        if (CurrentClass === 'main-div'){
-            return;
-        }
-        setshow(false);
-    }
 
-    const handleModalOpen = () =>{
-        setshow(true);
-    }
-
-
-        useEffect(fetchCourses, [])
+        useEffect(fetchCourses, [filtered])
 
     return(
         <div className="Sekai">
@@ -85,6 +88,13 @@ const Courses = () => {
             </div>
 
 
+            <div>
+                 <button className="btn btn-primary" onClick={clickFunction}>
+                    {getName()}
+                 </button>
+            </div>
+
+
             <div className="all-cards">
                 {courses.map((course) => {
                     return (
@@ -102,37 +112,33 @@ const Courses = () => {
                             </div>
                             <div className="button">
                                 <button type="button" className="btn btn-outline-danger" onClick={() =>deleteCourse(course.id)}>Eliminar</button>
-                                <button type="button" className="btn btn-outline-danger" onClick={() =>handleModalOpen()}>Editar</button>
                             </div>
-                            <div hidden={!show}>
-                                <div className="main-div">
-                                    <form onSubmit={editCourse}>
-                                        <fieldset>
-                                            <legend>Actualizar los datos</legend>
-                                            <div className="mb-3">
-                                                <label htmlFor="disabledTextInput" className="form-label">Name</label>
-                                                <input type="text" id="disabledTextInput" className="form-control" value={name}
-                                                       onChange={(e) => setName(e.target.value)}/>
-                                            </div>
-                                            <div className="mb-3">
-                                                <label htmlFor="disabledTextInput" className="form-label">Description</label>
-                                                <input type="text" id="disabledTextInput" className="form-control" value={description}
-                                                       onChange={(e) => setDescription(e.target.value)}
-                                                />
-                                            </div>
-                                            <div className="mb-3">
-                                                <label htmlFor="disabledTextInput" className="form-label">Price</label>
-                                                <input type="text" id="disabledTextInput" className="form-control" value={price}
-                                                       onChange={(e) => setPrice(e.target.value)}
-                                                />
-                                            </div>
-                                        </fieldset>
-                                    </form>
-                                </div>
-                                <div className="button">
-                                    <button type="button" className="btn btn-outline-danger" onClick={() =>editCourse(course.id)}>ACTUALIZAR</button>
-                                    <button type="button" className="btn btn-outline-danger" onClick={handleModalClose}>Cerrar</button>
-                                </div>
+                            <div className="main-div">
+                                <form onSubmit={editCourse}>
+                                    <fieldset>
+                                        <legend>Actualizar los datos</legend>
+                                        <div className="mb-3">
+                                            <label htmlFor="disabledTextInput" className="form-label">Name</label>
+                                            <input type="text" id="disabledTextInput" className="form-control" value={name}
+                                                   onChange={(e) => setName(e.target.value)}/>
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="disabledTextInput" className="form-label">Description</label>
+                                            <input type="text" id="disabledTextInput" className="form-control" value={description}
+                                                   onChange={(e) => setDescription(e.target.value)}
+                                            />
+                                        </div>
+                                        <div className="mb-3">
+                                            <label htmlFor="disabledTextInput" className="form-label">Price</label>
+                                            <input type="text" id="disabledTextInput" className="form-control" value={price}
+                                                   onChange={(e) => setPrice(e.target.value)}
+                                            />
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div className="button">
+                                <button type="button" className="btn btn-outline-danger" onClick={() =>editCourse(course.id)}>ACTUALIZAR</button>
                             </div>
                         </div>
                     )})
