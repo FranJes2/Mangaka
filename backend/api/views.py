@@ -16,11 +16,10 @@ class CourseViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         queryset = self.queryset
-        course_topprice = self.request.query_params.get('topprice')
-        if course_topprice is not None:
-            queryset = queryset.filter(price__lte=course_topprice)
+        topprice = self.request.query_params.get('topprice')
+        if topprice is not None:
+            queryset = Course.objects.filter(price__lte=topprice)
         return queryset
-
 
 
 class RegisterView(generics.CreateAPIView):

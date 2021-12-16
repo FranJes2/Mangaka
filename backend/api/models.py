@@ -5,7 +5,7 @@ from django.db import models
 class Course(models.Model):
     name = models.TextField()
     description = models.TextField()
-    price = models.TextField()
+    price = models.IntegerField()
 
 class Gallery(models.Model):
     name = models.TextField()
