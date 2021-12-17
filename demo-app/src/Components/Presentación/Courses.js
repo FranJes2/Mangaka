@@ -15,6 +15,7 @@ const Courses = () => {
     const [id, setId] = useState([])
     const [filtered, setFiltered] = useState(false)
     const [show, setshow] = useState(false);
+    const [topprice, setTopprice] = useState([])
 
 
     const clickFunction = () => {
@@ -22,19 +23,19 @@ const Courses = () => {
     }
 
     const getName = () => {
-        return filtered ? "Dejar de filtrar" : "Filtrar"
+        return filtered ? "Dejar de buscar" : "Buscar"
     }
 
 
     const fetchCourses = () => {
         if (filtered) {
-            httpGet('api/courses/?name=INICIAL')
+            httpGet('api/courses/?topprice=' + topprice)
                 .then((res) => setCourses(res.data))
-        }
-        else {
+        } else {
         httpGet('api/courses/')
             .then((res) => setCourses(res.data))
     }}
+
 
 
     const createCourse = (e) => {
@@ -52,6 +53,8 @@ const Courses = () => {
         httpPut('api/courses/'+ courseId + "/", {name: name, description: description, price: price})
             .then(fetchCourses)
     }
+
+
     const handleModalClose = (e) => {
         const CurrentClass = e.target.className;
         if (CurrentClass === 'main-div'){
@@ -69,14 +72,11 @@ const Courses = () => {
 
     return(
         <div className="Sekai">
-            <div className="main-div">
-                <h1 className="custom-title"> Convertite en Mangaka!</h1>
-                <p className="description">Aprende desde cero a crear tus propios personajes y tus propias historias con estilo manga.</p>
-            </div>
+
             <div className="main-div">
                 <form onSubmit={createCourse}>
                     <fieldset>
-                        <legend>Crear un nuevo curso</legend>
+                        <legend>CREAR UN NUEVO CURSO</legend>
                         <div className="mb-3">
                             <label htmlFor="disabledTextInput" className="form-label">Name</label>
                             <input type="text" id="disabledTextInput" className="form-control" value={name}
@@ -100,11 +100,20 @@ const Courses = () => {
             </div>
 
 
+            <div className="main-div">
+                <h1 className="custom-title"> Convertite en Mangaka! Elegí el curso que es para vos</h1>
+                <p className="description">Aprendé a crear tus propios personajes e historias con estilo manga</p>
+            </div>
+
             <div>
+                <p className="description"> Indicá el importe máximo dispuesto a abonar</p>
+                <input type="number" className="form-control"
+                       onChange={(e) => setTopprice(e.target.value)}/>
                  <button className="btn btn-primary" onClick={clickFunction}>
                     {getName()}
                  </button>
             </div>
+
 
 
             <div className="all-cards">

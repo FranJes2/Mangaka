@@ -19,10 +19,11 @@
 }
 
 .description{
-
     font-weight: bold;
     color: darkcyan;
+    text-align: center;
 }
+
 .contents{
     display: flex;
     flex-direction: column;
@@ -31,6 +32,7 @@
     border-radius: 15px;
     background-color: darkgoldenrod;
 }
+
 .row-picture-desc{
     display: flex;
     flex-direction: row;
